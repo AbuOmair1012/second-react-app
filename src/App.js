@@ -4,19 +4,20 @@ import PostComponenet from "./js/PostComponenet.js";
 import SideButtons from "./js/SideButtons.js";
 import "./js/styles/SideButtons.css";
 
+const showThis = true;
+const objectName = [
+  { id: 1, name: "Abdo  ", icon: "😂😊" },
+  { id: 2, name: "Hamid", icon: "😎🎶👌" },
+  { id: 3, name: "Mosa", icon: "🎉✔✔" },
+  { id: 4, name: "Ali", icon: "🤳👍" },
+  { id: 5, name: "Muhammed", icon: "💋🐱‍🐉🐱‍💻" },
+  { id: 6, name: "Qasim", icon: "🚡🚈🚄" },
+  { id: 7, name: "Omair", icon: "😂😊" },
+  { id: 8, name: "Danish", icon: "😂😊" },
+];
 function App() {
   // const Componenets = []
   // const names = ["Abdo", "Hamid", "Mosa", "Ali", "Muhammed"]
-  const objectName = [
-    { id: 1, name: "Abdo" },
-    { id: 2, name: "Hamid" },
-    { id: 3, name: "Mosa" },
-    { id: 4, name: "Ali" },
-    { id: 5, name: "Muhammed" },
-    { id: 6, name: "Qasim" },
-    { id: 7, name: "Omair" },
-    { id: 8, name: "Danish" },
-  ];
 
   // for (let i = 0; i<objectName.lenght; i++) {
   //   console.log(objectName.name[i])
@@ -90,7 +91,7 @@ function App() {
               margin: "30px",
             }}
           >
-            <SideButtons title="This is the side button area!"></SideButtons>
+            {/* <SideButtons title="This is the side button area!"></SideButtons>
 
             <SideButtons title="Hamid!" icon="😂😂😊">
               <img
@@ -104,8 +105,10 @@ function App() {
                 style={{ width: "100px", height: "100px" }}
                 src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWozenJrZHI0cW5jeTFveno0OXZrMDRmbDI2ZW5xeXB6N3c2MjRqNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l0IyeGIOSga8svUVa/giphy.gif"
               />
-            </SideButtons>
+            </SideButtons> */}
+            <ThisSideButtons />
           </div>
+          {/* <ThisSideButtons /> */}
 
           {/* == This is the Side Buttons end == */}
         </div>
@@ -114,5 +117,20 @@ function App() {
     </div>
   );
 }
+
+function ThisSideButtons() {
+  // const NamesReuseable =
+  if (showThis === true) {
+    return objectName.map((item) => (
+      <SideButtons id={item.id} title={item.name} icon={item.icon} />
+    ));
+  } else {
+    return null;
+  }
+}
+
+// return (
+//   <SideButtons />
+// )
 
 export default App;
