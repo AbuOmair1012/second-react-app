@@ -2,8 +2,6 @@ import './styles/SideButtons.css';
 
 
 export default SideButtons(props) {
-
-
     return (
         <div>
             {/* {buttons} */}

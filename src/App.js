@@ -2,9 +2,9 @@
 import "./App.css";
 import PostComponenet from "./js/PostComponenet.js";
 import SideButtons from "./js/SideButtons.js";
-import "./js/styles/SideButtons.css";
+// import "./js/styles/SideButtons.css";
 
-const showThis = true;
+// const showThis = true;
 const objectName = [
   { id: 1, name: "Abdo  ", icon: "😂😊" },
   { id: 2, name: "Hamid", icon: "😎🎶👌" },
@@ -15,6 +15,7 @@ const objectName = [
   { id: 7, name: "Omair", icon: "😂😊" },
   { id: 8, name: "Danish", icon: "😂😊" },
 ];
+
 function App() {
   // const Componenets = []
   // const names = ["Abdo", "Hamid", "Mosa", "Ali", "Muhammed"]
@@ -26,7 +27,21 @@ function App() {
 
   // console.log(objectName)
   const NamesReuseable = objectName.map((name) => (
-    <PostComponenet id={name.id} name={name.name} />
+    <PostComponenet
+      key={name.id}
+      id={name.id}
+      name={name.name}
+      icon={name.icon}
+    />
+  ));
+
+  const ButtonsReuseable = objectName.map((item) => (
+    <SideButtons
+      key={item.id}
+      id={item.id}
+      title={item.name}
+      icon={item.icon}
+    />
   ));
 
   return (
@@ -37,7 +52,7 @@ function App() {
 
       <div
         style={{
-          display: "flex",
+          // display: "flex",
           justifyContent: "center",
           alignItems: "center",
           marginLeft: "20%",
@@ -47,7 +62,11 @@ function App() {
         {/* This is the bodey start */}
         <div
           className="main-content"
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
           {/* This is the components start */}
           <div className="left-side">
@@ -84,13 +103,14 @@ function App() {
 
           {/* This is the Side Buttons start */}
           <div
-            className="right-side"
+            // className="right-side"
             style={{
               border: "5px teal solid",
               padding: "20px",
-              margin: "30px",
+              margin: "20px",
             }}
           >
+            {ButtonsReuseable}
             {/* <SideButtons title="This is the side button area!"></SideButtons>
 
             <SideButtons title="Hamid!" icon="😂😂😊">
@@ -106,7 +126,8 @@ function App() {
                 src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWozenJrZHI0cW5jeTFveno0OXZrMDRmbDI2ZW5xeXB6N3c2MjRqNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l0IyeGIOSga8svUVa/giphy.gif"
               />
             </SideButtons> */}
-            <ThisSideButtons />
+
+            {/* <ThisSideButtons /> */}
           </div>
           {/* <ThisSideButtons /> */}
 
@@ -118,16 +139,16 @@ function App() {
   );
 }
 
-function ThisSideButtons() {
-  // const NamesReuseable =
-  if (showThis === true) {
-    return objectName.map((item) => (
-      <SideButtons id={item.id} title={item.name} icon={item.icon} />
-    ));
-  } else {
-    return null;
-  }
-}
+// function ThisSideButtons() {
+//   // const NamesReuseable =
+//   if (showThis === true) {
+//     return objectName.map((item) => (
+//       <SideButtons id={item.id} title={item.name} icon={item.icon} />
+//     ));
+//   } else {
+//     return null;
+//   }
+// }
 
 // return (
 //   <SideButtons />
